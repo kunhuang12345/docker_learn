@@ -1,4 +1,3 @@
-[TOC]
 # Docker 介绍
 
 ## Docker 是什么？
