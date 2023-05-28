@@ -567,7 +567,7 @@ docker pull mysql:5.7
 docker images
 ```
 
-<img src="/image/14.jpg" style="zoom:50%;" />
+<img src="./image/14.jpg" style="zoom:50%;" />
 
 可以看到本地已经有了 `mysql:5.7` 的镜像，确实是下载成功了！
 
@@ -635,7 +635,7 @@ docker image ls
 docker inspect mysql:5.7
 ```
 
-<img src="/image/16.jpg" style="zoom: 33%;" />
+<img src="./image/16.jpg" style="zoom: 33%;" />
 
 `docker inspect` 返回的是 `JSON` 格式的信息，如果您想获取其中指定的一项内容，可以通过 `-f` 来指定，如获取镜像大小：
 
@@ -643,7 +643,7 @@ docker inspect mysql:5.7
 docker inspect -f {{".Size"}} mysql:5.7
 ```
 
-<img src="/image/17.jpg" style="zoom:50%;" />
+<img src="./image/17.jpg" style="zoom:50%;" />
 
 ### 三、使用 `history` 命令查看镜像历史
 
@@ -655,7 +655,7 @@ docker inspect -f {{".Size"}} mysql:5.7
 docker history mysql:5.7
 ```
 
-<img src="/image/18.jpg" style="zoom:33%;" />
+<img src="./image/18.jpg" style="zoom:33%;" />
 
 上面的输出信息中，为了美观，超出的都省略了，如果想要看具体信息，可以添加 `--no-trunc` 参数，命令如下：
 
@@ -673,7 +673,7 @@ docker history --no-trunc mysql:5.7
 
 举个例子，比如想导出下图中的 Redis 镜像：
 
-<img src="/image/19.jpg" style="zoom:50%;" />
+<img src="./image/19.jpg" style="zoom:50%;" />
 
 ​																							`docker 查看本地镜像`
 
@@ -687,7 +687,7 @@ docker save -o redis.tar redis:latest
 
 执行成功后，即可在当前目录看到打包好的 tar 包了：
 
-<img src="/image/20.jpg" style="zoom:50%;" />
+<img src="./image/20.jpg" style="zoom:50%;" />
 
 可以看到 `redis.tar` 镜像文件已经生成。接下来，你可以复制它，分享给别人了！
 
@@ -745,7 +745,7 @@ docker image rm [image]
   2. **镜像仓库整洁度：自动清理功能有助于保持镜像仓库的整洁。通过删除未使用的镜像资源，可以减少不必要的镜像层和依赖关系，使镜像仓库更易于管理。禁用自动清理会导致未使用的镜像资源积累，并可能使镜像仓库变得混乱和难以管理。**
   3. **存在依赖关系的镜像问题：如果禁用自动清理并删除了一个有子镜像依赖的父镜像，这些子镜像可能无法正常工作或访问所依赖的父镜像。这可能会导致容器启动失败或功能异常。**
 
-<img src="/image/21.jpg" style="zoom:50%;" />
+<img src="./image/21.jpg" style="zoom:50%;" />
 
 假设，我们想删除创建的 `redis` 镜像，命令如下：
 
@@ -759,7 +759,7 @@ docker rmi redis:latest
 
 除了通过标签名称来删除镜像，还可以通过镜像 ID 来删除镜像。
 
-<img src="/image/22.jpg" style="zoom:50%;" />
+<img src="./image/22.jpg" style="zoom:50%;" />
 
 ​																							`查看 Docker 镜像的 ID`
 
@@ -794,15 +794,15 @@ docker image prune
 
 登录成功后，会出现如下页面：
 
-<img src="/image/23.jpg" style="zoom: 33%;" />
+<img src="./image/23.jpg" style="zoom: 33%;" />
 
 选择创建一个镜像仓库：
 
-<img src="/image/24.jpg" style="zoom:50%;" />
+<img src="./image/24.jpg" style="zoom:50%;" />
 
 填写**仓库名称**、**描述信息**、**是否公开后**，点击创建。
 
-<img src="/image/25.jpg" style="zoom:50%;" />
+<img src="./image/25.jpg" style="zoom:50%;" />
 
 我们看到，仓库已经创建成功了，但是里面还没有任何镜像，接下来开始上传镜像，到此新创建的仓库中。
 
@@ -814,11 +814,11 @@ docker image prune
 docker login
 ```
 
-![](/image/26.jpg)
+![](./image/26.jpg)
 
 登录成功后，我们开始准备上传本地的 `python:3` 镜像：
 
-![](/image/27.jpg)
+![](./image/27.jpg)
 
 首先，我们对其打一个新的标签，**前缀与我们新创建的 Docker ID 、仓库名保持一致**:
 
@@ -828,7 +828,7 @@ docker login
 docker tag python:3 weiwosuoai1991/python:3
 ```
 
-![](/image/28.jpg)
+![](./image/28.jpg)
 
 查看本地信息，可以看到，标签打成功了。接下开，开始上传！执行命令：
 
@@ -836,11 +836,11 @@ docker tag python:3 weiwosuoai1991/python:3
 docker push weiwosuoai1991/python:3
 ```
 
-![](/image/29.jpg)
+![](./image/29.jpg)
 
 上传成功！去 Docker Hub 官网，新创建的仓库的信息页面验证一下，是否真的成功了：
 
-<img src="/image/30.jpg" style="zoom:50%;" />
+<img src="./image/30.jpg" style="zoom:50%;" />
 
 # Docker 容器
 
@@ -867,7 +867,7 @@ docker run IMAGE:TAG
 
 举个例子，比如想启动一个 `ubuntu` 容器, 并通过终端输出 `Hello world`：
 
-![](/image/31.jpg)
+![](./image/31.jpg)
 
 执行命令如下：
 
@@ -875,7 +875,7 @@ docker run IMAGE:TAG
 docker run ubuntu:latest /bin/echo 'Hello world'
 ```
 
-![](/image/32.jpg)
+![](./image/32.jpg)
 
 注意，上面这行命令运行容器，在输出 `Hello world` 后就会终止运行。如果想以交互的方式运行容器，执行如下命令：
 
@@ -883,7 +883,7 @@ docker run ubuntu:latest /bin/echo 'Hello world'
 docker run -t -i ubuntu:latest /bin/bash
 ```
 
-![](/image/33.jpg)
+![](./image/33.jpg)
 
 参数说明：
 
@@ -921,7 +921,7 @@ docker run -d ubuntu:latest /bin/sh -c "while true; do echo hello world; sleep 1
 
 执行成功后，会返回一个容器 ID。
 
-![](/image/34.jpg)
+![](./image/34.jpg)
 
 后台运行的容器可以通过 `docker logs` 命令来查看日志：
 
@@ -939,13 +939,13 @@ docker container start [container ID or NAMES]
 
 测试一波好不好使，先通过 `docker ps` 命令获取正在运行的容器:
 
-![](/image/35.jpg)
+![](./image/35.jpg)
 
 ​	
 
 有个 Redis 容器正在运行，先拿到容器 ID 或者容器名称，执行 `docker stop` 停止它后，再执行 `docker container start` 命令重启这个 Redis 容器 :
 
-![](/image/36.jpg)
+![](./image/36.jpg)
 
 可以看到，成功重启了一个终止状态的容器。
 
@@ -956,7 +956,7 @@ docker container start [container ID or NAMES]
 - `docker ps` : 查看正在运行中的容器；
 - `docker ps -a` : 查看所有容器，包括运行中的、已经停止运行的容器。
 
-<img src="/image/37.jpg" style="zoom:50%;" />
+<img src="./image/37.jpg" style="zoom:50%;" />
 
 返回字段说明：
 
@@ -990,7 +990,7 @@ docker exec -it [container ID or NAMES]
 
 举个例子，比如想进入到本地的 Redis 容器中：
 
-![](/image/38.jpg)
+![](./image/38.jpg)
 
 可以通过容器 ID 或者名称进入容器：
 
@@ -998,7 +998,7 @@ docker exec -it [container ID or NAMES]
 docker exec -it redis /bin/bash
 ```
 
-![](/image/39.jpg)
+![](./image/39.jpg)
 
 要想退出容器，只需键入 `exit` 命令回车即可：
 
@@ -1057,7 +1057,7 @@ docker kill [container ID or NAMES]
 docker container ls -a
 ```
 
-![](/image/40.jpg)
+![](./image/40.jpg)
 
 想要重启已经停止运行的容器，命令如下：
 
@@ -1091,7 +1091,7 @@ docker restart -t=5 redis
 
 使用 `docker export` 命令可以导出容器，比如想导出 Redis 容器：
 
-![](/image/41.jpg)
+![](./image/41.jpg)
 
 ```
 docker export 9e8d11aeef0c > redis.tar
@@ -1115,7 +1115,7 @@ cat redis.tar | docker import - test/redis:v1.0
 
 导入成功后，就可以看到新生成的镜像了：
 
-![](/image/42.jpg)
+![](./image/42.jpg)
 
 除了通过快照的方式导入容器，还可以通过指定 URL 或者某个目录来导入，例如：
 
@@ -1174,13 +1174,13 @@ Docker 镜像由多个文件系统（只读层）叠加而成。Docker 会加载
 
 Docker 提供了 3 种不同的方式将数据从宿主机挂载到容器中。
 
-![](/image/43.png)
+![](./image/43.png)
 
 #### 4.1 volume (最常用的方式)
 
 volume : Docker 管理宿主机文件系统的一部分，默认位于 `/var/lib/docker/volumes` 目录下, 也是最常用的方式。
 
-![](/image/44.jpg)
+![](./image/44.jpg)
 
 看上图，所有的 Docker 容器数据都保存在 `/var/lib/docker/volumes` 目录下。若容器运行时未指定数据卷， Docker 创建容器时会使用默认的匿名卷（名称为一堆很长的 ID）。
 
@@ -1202,7 +1202,7 @@ tmpfs mount : 挂载存储在宿主机的内存中，而不会写入宿主机的
 docker volume create test-vol
 ```
 
-![](/image/45.jpg)
+![](./image/45.jpg)
 
 #### 5.2 查看所有的数据卷
 
@@ -1210,7 +1210,7 @@ docker volume create test-vol
 docker volume ls
 ```
 
-<img src="/image/46.jpg" style="zoom:50%;" />
+<img src="./image/46.jpg" style="zoom:50%;" />
 
 #### 5.3 查看数据卷信息
 
@@ -1221,7 +1221,7 @@ docker volume ls
 docker volume inspect test-vol
 ```
 
-<img src="/image/47.jpg" style="zoom: 50%;" />
+<img src="./image/47.jpg" style="zoom: 50%;" />
 
 #### 5.4 运行容器时挂载数据卷
 
@@ -1258,13 +1258,13 @@ docker run -d -it --name=test-nginx -p 8011:80 --mount source=test-vol,target=/u
 
 容器运行成功后，进入到 `/var/lib/docker/volumes` 目录下，验证数据是否挂载成功：
 
-![](/image/48.jpg)
+![](./image/48.jpg)
 
 可以看到已经有了 `50x.html` 、 `index.html` 两个 Nginx 页面相关数据，说明数据卷挂载成功了。挂载成功后，我们不论是修改 `/var/lib/docker/volumes` 下的数据，还是进入到容器中修改 `/usr/share/nginx/html` 下的数据，都会同步修改对应的挂载目录，类似前端开发中双向绑定的作用。
 
 下面，我们停止并删除刚刚运行的 Nginx 容器, 看看数据卷中的数据是否会跟着被删除：
 
-![](/image/49.jpg)
+![](./image/49.jpg)
 
 可以发现数据卷相关数据都还在，表明数据卷的生命周期独立于容器。另外，若下次再创建 Nginx 容器，还可以复用这个数据卷，复用性以及扩张性都非常不错。
 
@@ -1317,7 +1317,7 @@ docker run -d -it --name=test-nginx -p 8011:80 -v /docker/nginx1:/usr/share/ngin
 
 这是一个Docker命令，它用来运行一个名为`dbdata`的容器。这个容器使用了`training/postgres`镜像，并且在后台运行（`-d`选项）。`-v /dbdata`选项将Docker主机上的`/dbdata`目录挂载到容器中。最后，这个命令运行了一个`echo Data-only container for postgres`命令，它只是输出一条信息，表示这个容器只用来存储数据。
 
-![](/image/50.jpg)
+![](./image/50.jpg)
 
 容器运行成功后，会发现该数据卷容器处于停止运行状态，这是因为数据卷容器并不需要处于运行状态，只需用于提供数据卷挂载即可。
 
@@ -1505,11 +1505,11 @@ docker build -t nginx:test .
 
 > 注意：命令的最后有个点 `.` , 很多小伙伴不注意会漏掉，`.`指定**上下文路径**，也表示在当前目录下。
 
-<img src="/image/51.jpg" style="zoom: 50%;" />
+<img src="./image/51.jpg" style="zoom: 50%;" />
 
 构建命令执行完成后，执行 `docker images` 命令查看本地镜像是否构建成功：
 
-![](/image/52.jpg)
+![](./image/52.jpg)
 
 镜像构建成功后，运行 Nginx 容器：
 
@@ -1519,7 +1519,7 @@ docker run -d -p 80:80 --name nginx nginx:test
 
 容器运行成功后，访问 `localhost:80`, 可以看到首页已经被成功修改了：
 
-![](/image/53.jpg)
+![](./image/53.jpg)
 
 ### 镜像构建之上下文路径
 
@@ -2148,7 +2148,7 @@ docker-compose --version
 
 若成功输出 Docker Compose 版本号，则表示环境已经安装成功了：
 
-![](/image/54.png)
+![](./image/54.png)
 
 ### Linux & MacOS 系统安装
 
@@ -2191,7 +2191,7 @@ Successfully installed docker-compose cached-property requests texttable websock
 
 Windows 只需卸载 Docker Desktop 即可完成 Docker Compose 的卸载：
 
-![](/image/55.png)
+![](./image/55.png)
 
 #### Linux & MacOS 卸载
 
@@ -2215,7 +2215,7 @@ $ sudo pip uninstall docker-compose
 
 这个简单的网站需实现功能：**每当用户访问时，后台进行计数，并在页面中显示总访问次数**。效果如下：
 
-<img src="/image/56.gif" style="zoom: 50%;" />
+<img src="./image/56.gif" style="zoom: 50%;" />
 
 ### 技术选型
 
@@ -2299,7 +2299,7 @@ docker build -t web:test .
 
 执行成功后，通过 `docker images` 可以看到构建成功的本地镜像:
 
-![](/image/56.png)
+![](./image/56.png)
 
 #### docker-compose.yml
 
@@ -2325,7 +2325,7 @@ services:
 docker-compose up
 ```
 
-![](/image/57.png)
+![](./image/57.png)
 
 `compose` 项目运行成功后，访问 web 服务，可以看到访问次数 `+1` 功能成功实现：
 
@@ -2805,7 +2805,7 @@ docker pull redis
 
 > 注意：未指定 Redis TAG 的情况下，默认下载最新的 `latest` 版本镜像。
 
-<img src="/image/58.png" style="zoom:50%;" />
+<img src="./image/58.png" style="zoom:50%;" />
 
 #### 查找指定版本的 Redis 镜像
 
@@ -2813,17 +2813,17 @@ docker pull redis
 
 Redis 镜像库访问地址：https://hub.docker.com/_/redis?tab=tags
 
-<img src="/image/59.jpg" style="zoom: 33%;" />
+<img src="./image/59.jpg" style="zoom: 33%;" />
 
 另外，还可以通过 `docker search redis` 命令来查看可用的 Redis 镜像版本：
 
-<img src="/image/60.jpg" style="zoom:33%;" />
+<img src="./image/60.jpg" style="zoom:33%;" />
 
 ### 二、确认 Redis 镜像是否下载成功
 
 执行 `docker images` 命令，确认镜像是否已经下载到本地：
 
-![](/image/61.png)
+![](./image/61.png)
 
 ### 三、运行 Redis 容器
 
@@ -2839,13 +2839,13 @@ docker run -d --name redis -p 6379:6379 redis
 - `--name`: 指定容器名称为 redis;
 - `-p 6379:6379`: 将容器的 6379 端口映射到宿主机的 6379 端口, 这样就可以直接通过访问本机的 6379 端口来访问 redis 容器了；
 
-![](/image/62.png)
+![](./image/62.png)
 
 ### 四、检查 Redis 容器是否运行成功
 
 执行 `docker ps` 命令可以查看正在运行的 Docker 容器：
 
-![](/image/63.jpg)
+![](./image/63.jpg)
 
 ### 五、连接刚刚运行的 Redis 容器
 
@@ -2855,7 +2855,7 @@ docker run -d --name redis -p 6379:6379 redis
 docker run -it redis redis-cli -h 172.17.0.1
 ```
 
-![](/image/64.jpg)
+![](./image/64.jpg)
 
 ## Docker 安装 MySQL
 
@@ -2869,7 +2869,7 @@ docker pull mysql:5.7
 
 下载完成后，通过 `docker images` 检查一下镜像是否下载成功:
 
-![](/image/65.jpg)
+![](./image/65.jpg)
 
 ### 二、启动 Mysql 容器
 
@@ -2892,7 +2892,7 @@ mysql:5.7
 
 命令执行完成后，可以通过 `docker ps`命令来确认下容器是否启动成功。
 
-![](/image/66.jpg)
+![](./image/66.jpg)
 
 注意，此方式启动的容器，容器重启后会丢失存储的数据，所以还需要在启动容器时，将相关目录挂载到宿主机，防止数据丢失。
 
@@ -2939,13 +2939,13 @@ mysql:5.7
 
 执行 `docker ps` 命令，查看下容器是否启动：
 
-![](/image/67.jpg)
+![](./image/67.jpg)
 
 ### 四、通过 Mysql 客户端连接一下试试
 
 通过 MySQL 客户端连接刚刚创建的 mysql, 看看能否连接成功：
 
-<img src="/image/68.jpg" style="zoom:50%;" />
+<img src="./image/68.jpg" style="zoom:50%;" />
 
 ### 五、相关问题补充
 
@@ -2977,7 +2977,7 @@ docker pull nginx:1.19.4
 
 命令执行成功后，通过 `docker images` 命令检查一下镜像是否下载成功：
 
-<img src="/image/69.jpg" style="zoom: 50%;" />
+<img src="./image/69.jpg" style="zoom: 50%;" />
 
 ### 二、运行 Nginx 容器
 
@@ -2997,7 +2997,7 @@ Nginx 容器运行成功后，访问 `http://localhost`，即可看到 Nginx 欢
 
 > 提示：访问 `http://localhost` 在不指定端口的情况下，默认端口号为 80
 
-<img src="/image/70.jpg" style="zoom:50%;" />
+<img src="./image/70.jpg" style="zoom:50%;" />
 
 ### 三、复制 Nginx 配置文件至宿主机
 
@@ -3014,7 +3014,7 @@ docker cp nginx:/etc/nginx/conf.d /docker/nginx
 
 复制完成后，查看指定路径的配置文件，如下：
 
-![](/image/71.jpg)
+![](./image/71.jpg)
 
 > PS: 因为我需要反向代理的服务部署在本机的 Docker 容器中，所以用的这个 IP，如果你用的外网其他地址，可自行修改。
 
@@ -3028,7 +3028,7 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 proxy_pass http://172.17.0.1:8090;
 ```
 
-<img src="/image/73.jpg" style="zoom: 33%;" />
+<img src="./image/73.jpg" style="zoom: 33%;" />
 
 ## 五、删除刚刚启动的 Nginx 容器，新启动一个
 
